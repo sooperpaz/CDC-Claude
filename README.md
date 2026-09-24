@@ -21,16 +21,20 @@ path changes are needed for deployment.
 
 ```
 natality_dashboard/
-├── app.py                # Entry point: layout + orchestration
-├── data/                 # Source CSV
+├── app.py                      # Entry point: page config, layout, tab orchestration
+├── data/
+│   └── Provisional_Natality_2025_CDC.csv
 ├── src/
-│   ├── data_loader.py    # Cached loading + validation
-│   ├── filters.py        # Sidebar filters
-│   ├── kpis.py            # KPI calculations
-│   ├── charts.py          # Plotly chart builders
-│   └── constants.py       # Month order, state abbreviations, palette
-├── .streamlit/config.toml # Theme
-└── requirements.txt
+│   ├── __init__.py
+│   ├── data_loader.py          # load_data(), validation, state→abbrev mapping
+│   ├── filters.py               # sidebar filter widgets, filter-application logic
+│   ├── kpis.py                  # KPI computation functions
+│   ├── charts.py                # all Plotly figure builders
+│   └── constants.py             # STATE_ABBREV dict, MONTH_ORDER list, color palette
+├── .streamlit/
+│   └── config.toml              # theme (accessible palette)
+├── requirements.txt
+└── README.md
 ```
 
 ## Data notes
